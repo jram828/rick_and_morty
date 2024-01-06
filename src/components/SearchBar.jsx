@@ -1,17 +1,13 @@
-import { useState } from "react";
-
+import { Button, ContainerNav, Input } from "./Mystyles";
 export default function SearchBar(props) {
-   
-   let [id, setId] = useState("");
-
-   const handleChange = (event) => {
-     setId(event.target.value);
-   };
+  const handleClick = () => {
+    props.onSearch();
+  };
 
   return (
-    <div>
-      <input type="search" name="personaje" />
-      <button onClick={props.onSearch()}>Agregar</button>
-    </div>
+    <ContainerNav>
+      <Input type="search" name="personaje" placeholder="ID.."/>
+      <Button onClick={handleClick}>Agregar</Button>
+    </ContainerNav>
   );
 }

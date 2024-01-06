@@ -7,10 +7,10 @@ import characters from './data.js';
 function App() {
    return (
      <div className="App">
-       <h1>Rick and Morty Characters</h1>
-       <br />
+       <h1 style={{
+         color:'aqua'
+}}>Rick and Morty Characters</h1>
        <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-       <br />
        <Cards characters={characters} />
      </div>
    );

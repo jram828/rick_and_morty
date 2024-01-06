@@ -3,7 +3,7 @@ import Card from './Card';
 export default function Cards( props) {
    console.log(props)
    return (
-     <div class="cards">
+     <div className="cards">
        {props.characters.map((character) => (
          <Card key={character.id} character={character} />
        ))}
