@@ -1,4 +1,4 @@
-import { Button, ContainerNav, Input } from "./Mystyles";
+import { Button, ContainerNav, Input } from "../Mystyles";
 export default function SearchBar(props) {
   const handleClick = () => {
     props.onSearch();
