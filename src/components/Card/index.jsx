@@ -1,9 +1,11 @@
 import "../../App.css";
 export default function Card(props) {
+
+  const { onClose } = props;
   return (
     <div className="container">
       <div className="card" key={props.id}>
-        <button className="boton" onClick={() => window.alert("Emulamos que se cierra la card")}>
+        <button className="boton" onClick={() => onClose(props.character.id)}>
           X
         </button>
         <img

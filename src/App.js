@@ -1,18 +1,33 @@
+import { useState } from 'react';
 import './App.css';
-// import Card from './components/Card.jsx';
 import Cards from './components/Cards';
-import SearchBar from './components/SearchBar';
-import characters from './data.js';
+import Nav from './components/Nav';
 
+const url='https://rickandmortyapi.com/api/character/'
+    
 function App() {
+
+  const [characters, setCharacters] = useState([]);
+  const onSearch = (id) => {
+    fetch(`${url}${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setCharacters([...characters, data]);
+      });
+  };
+
+  const onClose = (id) => {
+    const charactersFilter = characters.filter((character) => character.id !== id);
+    setCharacters(charactersFilter);
+  }
+  // console.log(characters);
    return (
      <div className="App">
-       <h1 style={{
-         color:'aqua'
-}}>Rick and Morty Characters</h1>
-       <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-       <Cards characters={characters} />
+       <h1 style={{color: "aqua",}}> Rick and Morty Characters </h1>
+       <Nav onSearch={onSearch}/>
+       <Cards characters={characters} onClose={ onClose} />
      </div>
    );
 }
+
 export default App;
