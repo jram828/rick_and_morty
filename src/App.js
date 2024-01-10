@@ -3,13 +3,14 @@ import './App.css';
 import Cards from './components/Cards';
 import Nav from './components/Nav';
 
-const url='https://rickandmortyapi.com/api/character/'
+const URL='https://rickandmortyapi.com/api/character/'
     
 function App() {
 
   const [characters, setCharacters] = useState([]);
+  
   const onSearch = (id) => {
-    fetch(`${url}${id}`)
+    fetch(`${URL}${id}`)
       .then((response) => response.json())
       .then((data) => {
         setCharacters([...characters, data]);
@@ -20,6 +21,7 @@ function App() {
     const charactersFilter = characters.filter((character) => character.id !== id);
     setCharacters(charactersFilter);
   }
+  
   // console.log(characters);
    return (
      <div className="App">

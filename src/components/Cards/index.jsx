@@ -5,7 +5,7 @@ export const Cards=({ characters, onClose }) =>{
   return (
     <div className="cards">
       {characters.map((character) => (
-        <Card key={character.id} character={character} />
+        <Card key={character.id} character={character} onClose={onClose} />
       ))}
     </div>
   );
