@@ -1,5 +1,6 @@
 import "../../App.css";
-// import onClose from "../../App";
+import { Link } from "react-router-dom";
+
 export default function Card(props) {
   console.log(props)
   const { name, status, gender, species, origin, image, id } = props.character;
@@ -18,14 +19,16 @@ export default function Card(props) {
           src={image}
           alt="Imagen del personaje"
         />
+        <Link to={`/detail/${id}`}>
         <h1
           style={{
             backgroundColor: "yellowgreen",
             fontSize: 16,
           }}
         >
-          Name:{name}
-        </h1>
+           Name:{name}
+          </h1>
+        </Link>
         <h2>Status:{status}</h2>
         <h2>Species:{species}</h2>
         <h2>Gender:{gender}</h2>
