@@ -33,7 +33,7 @@ function App() {
          navigate('/home');
        }
      }
-  
+     
   const onSearch = (id) => {
     fetch(`${URL}${id}`)
       .then((response) => response.json())
