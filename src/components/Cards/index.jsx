@@ -1,4 +1,4 @@
-import Card from '../Card';
+import Card from '../card';
 
 export const Cards=({ characters, onClose }) =>{
   // console.log(props);
