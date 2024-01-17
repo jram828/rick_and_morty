@@ -28,7 +28,7 @@ function App() {
      }, [access]);
 
      function login(userData) {
-       if (userData.password === PASSWORD && userData.username === EMAIL) {
+       if (userData.password === PASSWORD && userData.email === EMAIL) {
          setAccess(true);
          navigate('/home');
        }
