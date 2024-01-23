@@ -1,16 +1,22 @@
 import SearchBar from "../searchbar";
-import { Link } from "react-router-dom";
+import { Link, Button } from "react-router-dom";
 
-const Nav = ({ onSearch }) => {
+const Nav = ({ onSearch,logout }) => {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'row-reverse',
-      gap: 10,
-    justifyContent:'center'}}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row-reverse",
+        gap: 10,
+        justifyContent: "center",
+      }}
+    >
       <SearchBar onSearch={onSearch} />
-      <Link to="About/">About</Link>
-      <Link to="Home/">Home</Link>
+      <Link to="about/">About</Link>
+      <Link to="home/">Home</Link>
+      <Link to="favorites/">Favorites</Link>
+      <Link to={"/home"} onClick={logout}>Logout
+      </Link>
     </div>
   );
 };

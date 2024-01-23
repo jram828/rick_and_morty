@@ -23,7 +23,7 @@ const Form = ({login}) => {
     
   }
   
-  console.log(errores);
+  // console.log(errores);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -35,11 +35,10 @@ const Form = ({login}) => {
       <form onSubmit={submitHandler}>
         <img
           src="https://es.web.img3.acsta.net/pictures/18/10/31/17/34/2348073.jpg"
-          alt="" style={
-            {height:'350px'}
-          }
+          alt=""
+          style={{ height: "350px" }}
         />
-        <br />
+        <hr />
         <label htmlFor="email">Email:</label>
         <input
           name="email"
@@ -48,9 +47,9 @@ const Form = ({login}) => {
           value={userData.email}
           onChange={handleChange}
         />
-        <span>{errores.email}</span>
-        <br />
-        <br />
+        {errores.email !== "" && <h5>{errores.email}</h5>}
+        <hr />
+        <hr />
         <label htmlFor="password">Contraseña:</label>
         <input
           name="password"
@@ -58,8 +57,9 @@ const Form = ({login}) => {
           placeholder="Ingrese su contraseña"
           value={userData.password}
           onChange={handleChange}
-        />
-        <span>{errores.password}</span>
+          />
+        
+          {errores.password !== "" && <h5>{errores.password}</h5>}
         {errores.email || errores.password ? null : (
           <input type="submit" value="Enviar" />
         )}

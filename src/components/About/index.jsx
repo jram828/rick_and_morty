@@ -4,7 +4,7 @@ const  About = ()=> {
   
   return (
     <div>
-      <h1>Soy About</h1>
+      <h1>Esta aplicacion permite visualizar los personajes de Rick and Morty</h1>
    </div>
  ) 
 }

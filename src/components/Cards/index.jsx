@@ -1,7 +1,7 @@
 import Card from '../card';
 
 export const Cards=({ characters, onClose }) =>{
-  // console.log(props);
+  console.log('cards:',characters);
   return (
     <div className="cards">
       {characters.map((character) => (
@@ -12,4 +12,3 @@ export const Cards=({ characters, onClose }) =>{
 }
 
 export default Cards;
-// {props.charteller.map((ítem)=>
