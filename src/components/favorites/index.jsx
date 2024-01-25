@@ -7,7 +7,8 @@ const Favorites = (props) => {
  return (
    <div className="favorites">
      {props.myFavorites.map((character) => (
-       <Card key={character.id} character={character} />
+       <Card key={character.id} character={character} onClose={ props.onClose} />
+       
      ))}
    </div>
  ); 

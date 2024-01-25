@@ -53,6 +53,7 @@ function App() {
   const onClose = (id) => {
     const charactersFilter = characters.filter((character) => character.id !== id);
     setCharacters(charactersFilter);
+    
   }
   
   // console.log(characters);
