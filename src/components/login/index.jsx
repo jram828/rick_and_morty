@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { validar } from "../../utils/validacion";
+import "../../App.css";
 
 const Form = ({login}) => {
     const [userData, setUserData] = useState({
@@ -39,7 +40,9 @@ const Form = ({login}) => {
           style={{ height: "350px" }}
         />
         <hr />
-        <label htmlFor="email">Email:</label>
+        <label className="label" htmlFor="email">
+          Email:
+        </label>
         <input
           name="email"
           type="text"
@@ -47,19 +50,23 @@ const Form = ({login}) => {
           value={userData.email}
           onChange={handleChange}
         />
-        {errores.email !== "" && <h5>{errores.email}</h5>}
+        {errores.email !== "" && <h5 className="errores">{errores.email}</h5>}
         <hr />
         <hr />
-        <label htmlFor="password">Contraseña:</label>
+        <label className="label" htmlFor="password">
+          Contraseña:
+        </label>
         <input
           name="password"
           type="password"
           placeholder="Ingrese su contraseña"
           value={userData.password}
           onChange={handleChange}
-          />
-        
-          {errores.password !== "" && <h5>{errores.password}</h5>}
+        />
+
+        {errores.password !== "" && (
+          <h5 className="errores">{errores.password}</h5>
+        )}
         {errores.email || errores.password ? null : (
           <input type="submit" value="Enviar" />
         )}

@@ -49,3 +49,49 @@
    justify-content: center;
    flex-wrap: wrap;
 }
+
+.errores{
+   font-size: 100%;
+   color: red
+}
+
+.label{
+   font-size: 120%;
+   color: aqua
+}
+
+.textoAbout{
+   font-size: 180%;
+   color: aqua
+}
+
+.detail{
+   border-radius: 5%;
+   font-size: 100%;
+   background-color: aqua;
+   width: 50%;
+   height: 400 px;
+   display:flex;
+   vertical-align: middle;
+   margin: 20px;
+   padding: 10px;
+   flex-direction: column;
+   position: relative;
+   align-items: center;
+   
+}
+
+.detail .photo{
+   width: 60%;
+   height: 60 px;
+   border-radius: 70%;
+   
+}
+
+.favorites{
+   display: flex;
+   flex-wrap: wrap; 
+   flex-direction: row;
+   justify-content: center;
+   gap: 10px;
+   }

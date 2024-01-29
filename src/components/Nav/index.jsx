@@ -1,5 +1,6 @@
 import SearchBar from "../searchbar";
-import { Link, Button } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { Button } from "../Mystyles";
 
 const Nav = ({ onSearch,logout }) => {
   return (
@@ -7,15 +8,21 @@ const Nav = ({ onSearch,logout }) => {
       style={{
         display: "flex",
         flexDirection: "row-reverse",
-        gap: 10,
         justifyContent: "center",
       }}
     >
       <SearchBar onSearch={onSearch} />
-      <Link to="about/">About</Link>
-      <Link to="home/">Home</Link>
-      <Link to="favorites/">Favorites</Link>
-      <Link to={"/home"} onClick={logout}>Logout
+      <Link to="about/">
+        <Button>About</Button>
+      </Link>
+      <Link to="home/">
+        <Button>Home</Button>
+      </Link>
+      <Link to="favorites/">
+        <Button>Favorites</Button>
+      </Link>
+      <Link to={"/home"} onClick={logout}>
+        <Button>Logout</Button>
       </Link>
     </div>
   );

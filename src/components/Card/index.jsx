@@ -6,7 +6,7 @@ import { addFav, removeFav } from "../../redux/actions";
 import { useState, useEffect} from "react";
 
 const Card=(props)=> {
-  // console.log('Props:',props);
+  console.log('Props:',props);
   const { name, image, id } = props.character;
 const { addFav,removeFav} = props;
 
@@ -26,13 +26,9 @@ const { addFav,removeFav} = props;
     }
   }
 
-
-
-
-
   useEffect(() => {
     props.myFavorites.forEach((fav) => {
-      if (fav.id === props.id) {
+      if (fav.id === props.character.id) {
         setIsFav(true);
       }
     });
@@ -41,8 +37,7 @@ const { addFav,removeFav} = props;
     return (
       <div className="container">
         <div className="card" key={id}>
-          {/* {console.log('FAV:', isFav)} */}
-          {isFav ? (
+            {isFav ? (
             <button onClick={handleFavorite}>❤️</button>
           ) : (
             <button onClick={handleFavorite}> 🤍</button>
@@ -64,7 +59,7 @@ const { addFav,removeFav} = props;
                 fontSize: 16,
               }}
             >
-              Name:{name}
+              {name}
             </h1>
           </Link>
          
