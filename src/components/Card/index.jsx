@@ -6,7 +6,7 @@ import { addFav, removeFav } from "../../redux/actions";
 import { useState, useEffect} from "react";
 
 const Card=(props)=> {
-  console.log('Props:',props);
+  // console.log('Props:',props);
   const { name, image, id } = props.character;
 const { addFav,removeFav} = props;
 

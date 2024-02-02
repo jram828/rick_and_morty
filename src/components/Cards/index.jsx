@@ -1,7 +1,7 @@
 import Card from '../card';
 
 export const Cards=({ characters, onClose }) =>{
-  console.log('cards:',characters);
+  // console.log('cards:',characters);
   return (
     <div className="cards">
       {characters.map((character) => {
