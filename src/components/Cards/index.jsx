@@ -4,9 +4,14 @@ export const Cards=({ characters, onClose }) =>{
   console.log('cards:',characters);
   return (
     <div className="cards">
-      {characters.map((character) => (
-        <Card key={character.id} character={character} onClose={onClose} />
-      ))}
+      {characters.map((character) => {
+        return (
+          <div key={character.name}>
+            <Card character={character} onClose={onClose} />
+          </div>
+        );
+      }
+      )}
     </div>
   );
 }

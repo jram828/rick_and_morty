@@ -25,7 +25,9 @@ export const filterCards = (gender) => {
 }
 
 export const orderCards = (order) => {
+  console.log('Order Action:', order)
   return {
+    
     type: ORDER_CARDS,
     payload: order
   }

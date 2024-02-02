@@ -10,6 +10,7 @@ let initialState = {
 
 
 const rootReducer = (state = initialState, action) => {
+  console.log('Action reducer',action)
   switch (action.type) {
     case ADD_FAV:
       return {
@@ -24,25 +25,29 @@ const rootReducer = (state = initialState, action) => {
     
       return { ...state, myFavorites: myFavoritesFilter };
     case FILTER_CARDS:
+
       if (action.payload.toUpperCase() === "ALL") {
         return {
           ...state,
           myFavorites: state.allCharacters,
         };
       } else {
-        const charactersFilter = state.allCharacters.filter(
-          (character) =>
-            character.gender.toUpperCase() === action.payload.toUpperCase()
-        );
-
+        console.log('Stado filter',state)
+        
         return {
           ...state,
-          myFavorites: charactersFilter,
+          myFavorites: state.allCharacters.filter(
+          (character) =>
+            character.gender.toUpperCase() === action.payload.toUpperCase()
+        ),
         };
       }
             
     case ORDER_CARDS:
+      debugger
+      console.log('Payload',action.payload)
       if (action.payload.toUpperCase() === 'A') {
+        console.log("Payload 2", action.payload);
         return {
           ...state,
           myfavorites: state.allCharacters.sort((a, b) => a.name > b.name ? 1 : -1),
