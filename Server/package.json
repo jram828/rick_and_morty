@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Rick and Morty project server",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/index.js"
+  },
+  "keywords": [
+    "Rick",
+    "Morty"
+  ],
+  "author": "Julian Arango",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "nodemon": "^3.0.3"
+  }
+}
