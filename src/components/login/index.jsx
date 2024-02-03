@@ -12,8 +12,7 @@ const Form = ({login}) => {
       email: "",
       password: "",
   });
-  
-  
+    
   const handleChange=(e)=> {
     setErrores(validar({ ...userData, [e.target.name]: e.target.value }));
     
@@ -24,8 +23,6 @@ const Form = ({login}) => {
     
   }
   
-  // console.log(errores);
-
   const submitHandler = (e) => {
     e.preventDefault();
     login(userData);
@@ -37,9 +34,9 @@ const Form = ({login}) => {
         <img
           src="https://es.web.img3.acsta.net/pictures/18/10/31/17/34/2348073.jpg"
           alt=""
-          style={{ height: "350px" }}
+          style={{ height: "350px", marginBottom: '50px'}}
         />
-        <hr />
+        <br />
         <label className="label" htmlFor="email">
           Email:
         </label>
@@ -51,8 +48,7 @@ const Form = ({login}) => {
           onChange={handleChange}
         />
         {errores.email !== "" && <h5 className="errores">{errores.email}</h5>}
-        <hr />
-        <hr />
+        <br />
         <label className="label" htmlFor="password">
           Contraseña:
         </label>

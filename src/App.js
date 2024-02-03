@@ -21,8 +21,7 @@ function App() {
      //DB FALSA
      const EMAIL = "jram828@yahoo.com";
   const PASSWORD = "Jram0828";
-  const isLoged = false;
-
+  
     useEffect(() => {
       !access && navigate("/");
     }, [access, navigate]);
@@ -34,7 +33,6 @@ function App() {
        } else {
          window.alert("Usuario o contraseña incorrectos");
        }
-
      }
       const logout = () => {
         alert("Ha salido exitosamente");
@@ -53,10 +51,8 @@ function App() {
   const onClose = (id) => {
     const charactersFilter = characters.filter((character) => character.id !== id);
     setCharacters(charactersFilter);
-    
-  }
+    }
   
-  // console.log(characters);
   return (
     <div className="App">
       <h1 style={{ color: "aqua" }}> Rick and Morty Characters </h1>

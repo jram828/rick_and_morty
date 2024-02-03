@@ -6,22 +6,18 @@ import { addFav, removeFav } from "../../redux/actions";
 import { useState, useEffect} from "react";
 
 const Card=(props)=> {
-  // console.log('Props:',props);
   const { name, image, id } = props.character;
-const { addFav,removeFav} = props;
+  const { addFav,removeFav} = props;
 
-  const [isFav,setIsFav] = useState(false);
- 
+  const [isFav, setIsFav] = useState(false);
 
   const handleFavorite = () => {
     
     if (isFav === false) {
         setIsFav(true);
-        // console.log("Fav 1:", isFav);
-        addFav(props.character);
+         addFav(props.character);
      } else if (isFav === true) {
         setIsFav(false);
-        // console.log("Fav 2:", isFav);
         removeFav(props.character.id);
     }
   }
@@ -32,15 +28,33 @@ const { addFav,removeFav} = props;
         setIsFav(true);
       }
     });
-  }, [props.myFavorites]);
+  }, [props.myFavorites, props.character.id]);
 
     return (
       <div className="container">
         <div className="card" key={id}>
-            {isFav ? (
-            <button onClick={handleFavorite}>❤️</button>
+          {isFav ? (
+            <button
+              onClick={handleFavorite}
+              style={{
+                backgroundColor: "aqua",
+                borderStyle: "none",
+                fontSize: "300%",
+              }}
+            >
+              ❤️
+            </button>
           ) : (
-            <button onClick={handleFavorite}> 🤍</button>
+            <button
+              onClick={handleFavorite}
+              style={{
+                backgroundColor: "aqua",
+                borderStyle: "none",
+                fontSize: "300%",
+              }}
+            >
+              🤍
+            </button>
           )}
 
           <button
@@ -62,7 +76,6 @@ const { addFav,removeFav} = props;
               {name}
             </h1>
           </Link>
-         
         </div>
       </div>
     );
@@ -72,7 +85,4 @@ const { addFav,removeFav} = props;
     return { myFavorites: state.myFavorites };
   };
 
-
 export default connect(mapStateToProps, {addFav,removeFav})(Card);
-
-// export default Card

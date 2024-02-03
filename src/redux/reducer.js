@@ -1,13 +1,9 @@
 import { ADD_FAV, FILTER_CARDS, ORDER_CARDS, REMOVE_FAV } from "./actions";
 
-
 let initialState = {
   myFavorites: [],
-  allCharacters: [],
-  charactersOrder:[]
-};
-
-
+  allCharacters: []
+  };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -26,13 +22,11 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_CARDS:
       
       if (action.payload.toUpperCase() === "ALL") {
-        // console.log("Filter", action.payload);
         return {
           ...state,
           myFavorites: state.allCharacters,
         };
       } else {
-        // console.log("Filter 2", state.allCharacters);
         const charactersFilter = state.allCharacters.filter(
           (character) =>
             character.gender.toUpperCase() === action.payload.toUpperCase()
@@ -46,23 +40,19 @@ const rootReducer = (state = initialState, action) => {
             
     case ORDER_CARDS:
       if (action.payload.toUpperCase() === 'A') {
-        console.log('Order', state)
-        
-        return {
+         return {
           ...state,
-          myfavorites: state.allCharacters.sort((a, b) => a.name > b.name ? 1 : -1),
+          myFavorites: state.allCharacters.sort((a, b) => a.name > b.name ? 1 : -1),
         };
-      } else if (action.payload.toUpperCase() === "D") {
-        console.log("Order 2", action.payload);
-        return {
+      } else  {
+          return {
           ...state,
-          myfavorites: state.allCharacters.sort((a, b) =>
+          myFavorites: state.allCharacters.sort((a, b) =>
             a.name < b.name ? 1 : -1
           ),
         };
       }
-      return
-    default:
+      default:
       return state;
   }
 };

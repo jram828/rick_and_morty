@@ -25,7 +25,6 @@ const Detail = () => {
     <div className="container">
       <div className="detail" key={id}>
         {character.name && <h1> {character.name} </h1>}
-
         <img className="photo" src={character.image} alt={character.name} />
         <h3>Status:{character.status}</h3>
         <h2>Species:{character.species}</h2>
