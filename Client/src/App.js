@@ -7,7 +7,9 @@ import About from './components/about';
 import Detail from './components/detail';
 import Form from './components/login';
 import Favorites from './components/favorites';
-export const URL='https://rickandmortyapi.com/api/character/'
+export const URL ='http://localhost:3001/rickandmorty/character/'
+  // 'https://rickandmortyapi.com/api/character/'
+// http://localhost:3001/rickandmorty/character/${id}
     
 function App() {
 
@@ -41,10 +43,10 @@ function App() {
       };
   
   const onSearch = (id) => {
-    fetch(`${URL}${id}`)
+      fetch(`${URL}${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setCharacters([...characters, data]);
+        setCharacters(characters.concat(data));
       });
   };
 
