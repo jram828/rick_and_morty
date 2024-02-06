@@ -9,7 +9,7 @@ import Form from './components/login';
 import Favorites from './components/favorites';
 export const URL ='http://localhost:3001/rickandmorty/character/'
   // 'https://rickandmortyapi.com/api/character/'
-// http://localhost:3001/rickandmorty/character/${id}
+
     
 function App() {
 
