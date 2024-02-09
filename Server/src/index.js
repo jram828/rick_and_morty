@@ -1,5 +1,5 @@
 const http = require('http');
-const data =require('./utils/data');
+const getCharById = require("./controllers/getCharById");
 
 http.createServer((req, res) => { 
     
@@ -12,11 +12,8 @@ http.createServer((req, res) => {
   
   if (req.url.includes("/rickandmorty/character/")) {
     const id = findId(req.url);
-    const charactersFilter = data.filter(
-          (character) => character.id === id
-    );
-    res.writeHead(200, { "Content-type": "application/json" });
-    return res.end(JSON.stringify(charactersFilter));
+    getCharById(res,id)
+    
   } else {
     res.writeHead(404,{'Content-Type':'text/plain'});
     res.end('Character Id not found');
