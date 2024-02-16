@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 import Cards from './components/cards';
 import Nav from './components/nav';
@@ -21,21 +22,31 @@ function App() {
      const navigate = useNavigate();
 
      //DB FALSA
-     const EMAIL = "jram828@yahoo.com";
-  const PASSWORD = "Jram0828";
+    //  const EMAIL = "jram828@yahoo.com";
+    //  const PASSWORD = "Jram0828";
   
     useEffect(() => {
       !access && navigate("/");
     }, [access, navigate]);
 
-     const login=(userData)=> {
-       if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate("/home");
-       } else {
-         window.alert("Usuario o contraseña incorrectos");
-       }
-     }
+        //CON WEB SERVER
+    //  const login=(userData)=> {
+    //    if (userData.password === PASSWORD && userData.email === EMAIL) {
+    //      setAccess(true);
+    //      navigate("/home");
+    //    } else {
+    //      window.alert("Usuario o contraseña incorrectos");
+    //    }
+  //  }
+  function login(userData) {
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+    });
+  }
       const logout = () => {
         alert("Ha salido exitosamente");
         setAccess(false);
@@ -45,8 +56,9 @@ function App() {
   const onSearch = (id) => {
       fetch(`${URL}${id}`)
       .then((response) => response.json())
-      .then((data) => {
-        setCharacters(characters.concat(data));
+        .then((data) => {
+        console.log('Data:',data)
+        setCharacters([...characters, data]);
       });
   };
 

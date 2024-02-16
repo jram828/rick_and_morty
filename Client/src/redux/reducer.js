@@ -8,19 +8,22 @@ let initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAV:
-      return {
-        ...state,
-        allCharacters: [...state.allCharacters, action.payload],
-        myFavorites: [...state.myFavorites, action.payload]
-      }
+      // return {
+      //   ...state,
+      //   allCharacters: [...state.allCharacters, action.payload],
+      //   myFavorites: [...state.myFavorites, action.payload],
+      // };
+      console.log('Payload ADD: ',action.payload)
+      return { ...state, myFavorites: action.payload, allCharacters: action.payload };
     case REMOVE_FAV:
-      const myFavoritesFilter = state.myFavorites.filter(
-        (character) => character.id !== action.payload
-      );
-    
-      return { ...state, myFavorites: myFavoritesFilter };
-    case FILTER_CARDS:
+    // const myFavoritesFilter = state.myFavorites.filter(
+    //   (character) => character.id !== action.payload
+      // );
+      // return { ...state, myFavorites: myFavoritesFilter };
+       return { ...state, myFavorites: action.payload };
+
       
+    case FILTER_CARDS:
       if (action.payload.toUpperCase() === "ALL") {
         return {
           ...state,
@@ -37,22 +40,24 @@ const rootReducer = (state = initialState, action) => {
           myFavorites: charactersFilter,
         };
       }
-            
+
     case ORDER_CARDS:
-      if (action.payload.toUpperCase() === 'A') {
-         return {
+      if (action.payload.toUpperCase() === "A") {
+        return {
           ...state,
-          myFavorites: state.allCharacters.sort((a, b) => a.name > b.name ? 1 : -1),
+          myFavorites: state.allCharacters.sort((a, b) =>
+            a.name > b.name ? 1 : -1
+          ),
         };
-      } else  {
-          return {
+      } else {
+        return {
           ...state,
           myFavorites: state.allCharacters.sort((a, b) =>
             a.name < b.name ? 1 : -1
           ),
         };
       }
-      default:
+    default:
       return state;
   }
 };
