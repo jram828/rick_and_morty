@@ -38,14 +38,18 @@ function App() {
     //      window.alert("Usuario o contraseña incorrectos");
     //    }
   //  }
-  function login(userData) {
+  async function login(userData) {
     const { email, password } = userData;
     const URL = "http://localhost:3001/rickandmorty/login/";
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+    try {
+      const { data } = await axios(URL + `?email=${email}&password=${password}`);
+      console.log('Login 2:',data)
       const { access } = data;
       setAccess(data);
       access && navigate("/home");
-    });
+      } catch (error) {
+        throw new TypeError (error)
+      };
   }
       const logout = () => {
         alert("Ha salido exitosamente");
@@ -53,13 +57,13 @@ function App() {
         navigate("/");
       };
   
-  const onSearch = (id) => {
-      fetch(`${URL}${id}`)
-      .then((response) => response.json())
-        .then((data) => {
-        console.log('Data:',data)
-        setCharacters([...characters, data]);
-      });
+  const onSearch = async (id) => {
+    try {
+        const {data }= await axios(`${URL}${id}`)
+         setCharacters([...characters, data]);
+      } catch (error) {
+        window.alert('Character Not Found. There are 826 characters!');
+      };
   };
 
   const onClose = (id) => {

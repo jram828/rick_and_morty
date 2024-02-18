@@ -17,14 +17,17 @@ export const ORDER_CARDS = 'ORDER_CARDS';
 // ACTION | addFav
 export const addFav = (character) => {
   const endpoint = "http://localhost:3001/rickandmorty/fav";
-  return (dispatch) => {
-    axios.post(endpoint, character).then(({ data }) => {
-      console.log("data AddFav", data);
+  return async (dispatch) => {
+    const { data } = await axios.post(endpoint, character)
+    try{
+      
       return dispatch({
         type: "ADD_FAV",
         payload: data,
       });
-    });
+    } catch (erorr){
+       throw new TypeError('El favorito no ha sido agregado')
+    };
   };
 };
 // export const removeFav = (id) => {
@@ -36,13 +39,16 @@ export const addFav = (character) => {
 
 export const removeFav = (id) => {
   const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
-  return (dispatch) => {
-    axios.delete(endpoint).then(({ data }) => {
+  return async (dispatch) => {
+    const { data } = await axios.delete(endpoint)
+    try{
       return dispatch({
         type: "REMOVE_FAV",
         payload: data,
       });
-    });
+    } catch (error) {
+      throw new TypeError("El favorito no se ha borrado");
+    };
   };
 };
 

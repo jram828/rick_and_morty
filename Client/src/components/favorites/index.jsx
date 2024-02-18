@@ -3,7 +3,7 @@ import Card from "../card";
 import { filterCards, orderCards } from "../../redux/actions";
 import { useState } from "react";
 
-const Favorites = () => {
+const Favorites = ({onClose}) => {
 
   const [aux, setAux] = useState(false);
   const dispatch = useDispatch();
@@ -43,7 +43,8 @@ const Favorites = () => {
             return (
               <Card
               key={character.id}
-              character={character}
+                character={character}
+                onClose={onClose}
               />
              )
             }

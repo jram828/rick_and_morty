@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { validar } from "../../utils/validacion";
 import "../../App.css";
 
-const Form = ({login}) => {
+const Form = ({ login }) => {
+  console.log('Login: ',login)
     const [userData, setUserData] = useState({
       email: "",
       password: "",
