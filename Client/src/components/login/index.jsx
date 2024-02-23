@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { validar } from "../../utils/validacion";
 import "../../App.css";
+import logo from "../../assets/RickAndMorty.jpg"
 
 const Form = ({ login }) => {
   console.log('Login: ',login)
@@ -33,7 +34,7 @@ const Form = ({ login }) => {
     <div>
       <form onSubmit={submitHandler}>
         <img
-          src="https://es.web.img3.acsta.net/pictures/18/10/31/17/34/2348073.jpg"
+          src={logo}
           alt=""
           style={{ height: "350px", marginBottom: '50px'}}
         />

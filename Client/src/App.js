@@ -48,7 +48,7 @@ function App() {
       setAccess(data);
       access && navigate("/home");
       } catch (error) {
-        throw new TypeError (error)
+        window.alert("Usuario o contraseña incorrectos");
       };
   }
       const logout = () => {
