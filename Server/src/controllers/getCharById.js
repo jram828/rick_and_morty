@@ -20,11 +20,11 @@ const getCharById = async (req, res) => {
       };
       res.status(200).json(character);
     } else {
-      res.status(404).json({ message: 'Not found' });
+      res.status(400).json({ message: 'Not found' });
       console.log(res.status)
     }
   } catch (error) {
-      console.log('Aqui se rompe');
+      // console.log('Aqui se rompe');
     res.status(500).json({message: error.message});
   }
 };

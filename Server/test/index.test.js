@@ -1,7 +1,7 @@
 const app = require("../src/App");
 const session = require("supertest");
 const agent = session(app);
-
+// console.log('Agent:',agent)
 const character = {
   id: 1,
   name: "Rick Sanchez",
@@ -11,7 +11,13 @@ const character = {
 const character2 = { id: 2, name: "Morty", species: "Human", status: "Alive" };
 
 describe('Test de RUTAS:', () => {
+  // beforeEach(() => {
+  //   agent = supertest.agent(app); // Crea un agente Supertest
+  // });
   describe("GET /rickandmorty/character/:id", () => {
+    // afterEach(async () => {
+    //   await agent.close();
+    // });
     it('Responde con status: 200', async () => {
       await agent.get('/rickandmorty/character/1').expect(200);
     });
@@ -33,6 +39,7 @@ describe('Test de RUTAS:', () => {
     
     it("Si hay un error responde con status: 500", async () => {
       await agent.get("/rickandmorty/character/11111").expect(500);
+      
     });
 
   })
@@ -46,7 +53,7 @@ describe('Test de RUTAS:', () => {
 
     it("Valida datos incorrectos", async () => {
       const response = await agent
-        .get("/rickandmorty/login?email=jram828@yahoo.com&password=Jram0828")
+        .get("/rickandmorty/login?email=jram828@yahoo.com&password=Jram08")
         .expect(400);
       expect(response.body).toEqual({ access: false });
     });
@@ -88,4 +95,10 @@ describe('Test de RUTAS:', () => {
      });
 
    });
+  
+  // afterEach(() => {
+  //   // Cierra el agente Supertest
+  //   agent.close();
+  // });
 })
+// agent.close();
