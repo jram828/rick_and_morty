@@ -73,7 +73,12 @@ function App() {
   
   return (
     <div className="App">
-      <h1 style={{ color: "aqua" }}> Rick and Morty Characters </h1>
+      <h1 style={{ color: "aqua" }}>
+        PROYECTO INTEGRADOR - SOY HENRY{" "}
+      </h1>
+      <h2 style={{ color: "aqua" }}>
+        Personajes Rick and Morty{" "}
+      </h2>
       {location.pathname !== "/" ? (
         <Nav onSearch={onSearch} logout={logout} />
       ) : undefined}

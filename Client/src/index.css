@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   background-image: url('https://img.freepik.com/foto-gratis/fondo-pantalla-abstracto-nebulosa-ultra-detallado-4_1562-749.jpg?size=626&ext=jpg');
+  /* background-image: url('./assets/espacio.jpg'); */
    background-repeat:no-repeat;
    background-size: cover;
 }

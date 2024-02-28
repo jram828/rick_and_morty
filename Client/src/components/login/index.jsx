@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { validar } from "../../utils/validacion";
 import "../../App.css";
 import logo from "../../assets/RickAndMorty.jpg"
+import { Button } from "../Mystyles";
 
 const Form = ({ login }) => {
   console.log('Login: ',login)
@@ -35,39 +36,56 @@ const Form = ({ login }) => {
       <form onSubmit={submitHandler}>
         <img
           src={logo}
-          alt=""
-          style={{ height: "350px", marginBottom: '50px'}}
+          alt="Rick and Morty login"
+          style={{ height: "300px", marginBottom: "10px", borderRadius:"18%", borderColor:"black", borderStyle:"solid"}}
         />
-        <br />
-        <label className="label" htmlFor="email">
-          Email:
-        </label>
-        <input
-          name="email"
-          type="text"
-          placeholder="Ingrese su Email"
-          value={userData.email}
-          onChange={handleChange}
-        />
-        {errores.email !== "" && <h5 className="errores">{errores.email}</h5>}
-        <br />
-        <label className="label" htmlFor="password">
-          Contraseña:
-        </label>
-        <input
-          name="password"
-          type="password"
-          placeholder="Ingrese su contraseña"
-          value={userData.password}
-          onChange={handleChange}
-        />
+          <div className="InputLogin">
+          <label className="label" htmlFor="email">
+            Email:
+          </label>
+          <br />
+          <input
+            name="email"
+            type="text"
+            placeholder="Ingrese su Email"
+            value={userData.email}
+            onChange={handleChange}
+          />
+          <br />
+          {errores.email !== "" && <h5 className="errores">{errores.email}</h5>}
+          
+          <label className="label" htmlFor="password">
+            Contraseña:
+          </label>
+          <br />
+          <input
+            name="password"
+            type="password"
+            placeholder="Ingrese su contraseña"
+            value={userData.password}
+            onChange={handleChange}
+          />
+        
+          {errores.password !== "" && (
+            <h5 className="errores">{errores.password}</h5>
+          )}
 
-        {errores.password !== "" && (
-          <h5 className="errores">{errores.password}</h5>
-        )}
-        {errores.email || errores.password ? null : (
-          <input type="submit" value="Enviar" />
-        )}
+          {/* {errores.email || errores.password ? null : (
+          <button type="submit" value="Enviar" className="boton" />
+        )} */}
+          <hr style={{ borderStyle: "none" }} />
+          <Button
+            type="submit"
+            disabled={
+              !userData.email ||
+              !userData.password ||
+              errores.email ||
+              errores.password
+            }
+          >
+            INGRESAR
+          </Button>
+        </div>
       </form>
     </div>
   );

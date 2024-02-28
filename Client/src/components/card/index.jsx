@@ -40,6 +40,7 @@ const Card=(props)=> {
                 backgroundColor: "aqua",
                 borderStyle: "none",
                 fontSize: "300%",
+                cursor: "pointer",
               }}
             >
               ❤️
@@ -51,6 +52,7 @@ const Card=(props)=> {
                 backgroundColor: "aqua",
                 borderStyle: "none",
                 fontSize: "300%",
+                cursor: "pointer",
               }}
             >
               🤍
@@ -58,7 +60,7 @@ const Card=(props)=> {
           )}
 
           <button
-            className="boton"
+            className="boton2"
             onClick={() => {
               props.onClose(id);
             }}
