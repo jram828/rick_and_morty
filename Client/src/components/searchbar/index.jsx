@@ -1,4 +1,4 @@
-import { Button, ContainerNav, Input } from "../Mystyles";
+import { Button2, ContainerNav, Input } from "../Mystyles";
 import { useState } from "react";
 
 const SearchBar = (props) => {
@@ -11,14 +11,16 @@ const SearchBar = (props) => {
   };
   return (
     <ContainerNav>
+      <></>
       <Input
         value={id}
         onChange={handleChange}
         type="search"
         name="personaje"
-        placeholder="ID.."
+        placeholder="ID..."
       />
-      <Button onClick={handleClick}>Agregar</Button>
+      <Button2 onClick={handleClick}>Agregar</Button2>
+      <></>
     </ContainerNav>
   );
 };

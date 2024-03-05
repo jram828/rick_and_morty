@@ -66,6 +66,8 @@
    color: aqua;
    margin: 10px;
    font-weight: bold;
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
 }
 
 .textoAbout{
@@ -109,50 +111,4 @@
    width: 100px;
    height: 22px;
    font-size: 2em;
-}
-
-.divFoto .fotoAbout{
-   height: 200px;
-   width: 180px;
-   border-style: solid;
-   margin: 10px;
-   border-radius: 20%;
-   
-}
-
-.divFoto {
-   height: 220px;
-   width: 200px;
-   margin: 10px;
-   border-radius: 20%;
-   /* position: absolute;
-   top: 0%;
-   left: 8%; */
-}
-
-.parrafoAbout{
-   color: black;
-   font-size: 120%;
-   justify-content:space-between;
-   width:300 px;
-   /* position: absolute; */
-   top: 0%;
-   left: 20%;
-   text-align: center;
-}
-
-.containerAbout{
-   /* display: flex;
-   position: relative;
-   flex-direction: column; */
-   border-radius: 20%;
-   border-style: solid;
-   border-color: black;
-   background-color: aqua;
-   width: 800px;
-}
-
-h4{
-   color: black;
-   /* text-align: justify; */
 }

@@ -73,10 +73,22 @@ function App() {
   
   return (
     <div className="App">
-      <h1 style={{ color: "aqua" }}>
+      <h1
+        style={{
+          color: "aqua",
+          WebkitTextStrokeWidth: "1px",
+          WebkitTextStrokeColor: "black",
+        }}
+      >
         PROYECTO INTEGRADOR - SOY HENRY{" "}
       </h1>
-      <h2 style={{ color: "aqua" }}>
+      <h2
+        style={{
+          color: "aqua",
+          WebkitTextStrokeWidth: "1px",
+          WebkitTextStrokeColor: "black",
+        }}
+      >
         Personajes Rick and Morty{" "}
       </h2>
       {location.pathname !== "/" ? (

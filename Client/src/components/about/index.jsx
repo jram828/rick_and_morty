@@ -2,6 +2,9 @@ import React from "react"
 import "../../App.css";
 import foto from '../../assets/FOTOJULIAN.jpg'
 import './about.css'
+import ReactPlayer from 'react-player'
+import videoRyM from '../../assets/videoRyM.mp4'
+
 const About = () => {
   
   return (
@@ -27,6 +30,17 @@ const About = () => {
           tímido y no muy listo; viven una variedad de aventuras a lo largo de
           universos paralelos.
         </h4>
+      </div>
+      <br />
+      <div className="video">
+        <ReactPlayer
+          url={videoRyM}
+          height={"100%"}
+          width={"100%"}
+          controls
+          playing
+          loop
+        />
       </div>
     </div>
   ); 

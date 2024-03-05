@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { validar } from "../../utils/validacion";
 import "../../App.css";
 import logo from "../../assets/RickAndMorty.jpg"
-import { Button } from "../Mystyles";
+import { Button3 } from "../Mystyles";
 
 const Form = ({ login }) => {
   console.log('Login: ',login)
@@ -74,7 +74,7 @@ const Form = ({ login }) => {
           <button type="submit" value="Enviar" className="boton" />
         )} */}
           <hr style={{ borderStyle: "none" }} />
-          <Button
+          <Button3
             type="submit"
             disabled={
               !userData.email ||
@@ -84,7 +84,7 @@ const Form = ({ login }) => {
             }
           >
             INGRESAR
-          </Button>
+          </Button3>
         </div>
       </form>
     </div>

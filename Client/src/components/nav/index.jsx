@@ -8,7 +8,8 @@ const Nav = ({ onSearch,logout }) => {
       style={{
         display: "flex",
         flexDirection: "row-reverse",
-        justifyContent: "center",
+        justifyContent: "space-around",
+        width: "80%",
       }}
     >
       <SearchBar onSearch={onSearch} />

@@ -2,12 +2,16 @@ const express = require('express');
 const server = require('./App');
 const PORT = 3001;
 const router= require('../src/routes')
-
+//const {sequelize}=require('./DB_connection')
 server.use("/rickandmorty", router);
+const { conn } = require("./DB_connection");
 
-server.listen(PORT, () => {
-  console.log('Server en puerto: ' + PORT);
-})
+conn.sync({ force: true }).then(() => {
+  server.listen(PORT, () => {
+    console.log('Server en puerto: ' + PORT);
+  
+  });
+});
 
 
 //CON WEB SERVER

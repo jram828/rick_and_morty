@@ -1,5 +1,68 @@
 .divAbout{
   position: relative;
-  display: flex;
-  flex-direction: row;
+  display:inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+.video{
+  padding: 8px;
+  background-color: aqua;
+  border-radius: 5%;
+  border-style: solid;
+  border-color: black;
+  height: 24%;
+  width: 32%;
+  
+}
+
+
+.divFoto .fotoAbout{
+   height: 200px;
+   width: 180px;
+   border-style: solid;
+   margin: 10px;
+   border-radius: 20%;
+   position: absolute;
+   top: 2%;
+   left: 8%;
+}
+
+.divFoto {
+   height: 220px;
+   width: 200px;
+   margin: 10px;
+   border-radius: 20%;
+   /* position: absolute;
+   top: 0%;
+   left: 8%; */
+}
+
+.parrafoAbout{
+   color: black;
+   font-size: 100%;
+   justify-content:space-between;
+   width:300 px;
+   /* position: absolute; */
+   /* top: 0%;
+   left: 20%; */
+   text-align: center;
+}
+
+.containerAbout{
+   padding: 10px;
+   border-radius: 20%;
+   border-style: solid;
+   border-color: black;
+   background-color: aqua;
+   width: 50%;
+   height: 40%;
+   position: absolute;
+   top: 0%;
+   left: 25%;
+}
+
+h4{
+   color: black;
+   font-size: 14px;
+   /* text-align: justify; */
 }
