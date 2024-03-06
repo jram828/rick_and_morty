@@ -16,12 +16,17 @@ module.exports = (sequelize) => {
        },
        species: { type: DataTypes.STRING,  allowNull: false },
         gender: {
-           type: DataTypes.ENUM("Alive", "Dead", "Unknown"),
-        defaultValue:"Alive"},
+           type: DataTypes.ENUM("Male", "Female", "unknown","Genderless"),
+        allowNull:false},
        status: {
-         type: DataTypes.STRING,
+         type: DataTypes.ENUM("Alive", "Dead", "Unknown"),
+         defaultValue: "Alive",
          allowNull: false,
        },
+       image: {
+         type: DataTypes.STRING,
+         allowNull:false,
+       }
      },
      { timestamps: false }
    );

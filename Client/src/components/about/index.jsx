@@ -13,8 +13,7 @@ const About = () => {
         <img className="fotoAbout" src={foto} alt="Foto Autor" />
       </div>
       <div className="containerAbout">
-        {/* <h1 className="textoAbout">PROYECTO INTEGRADOR - SOY HENRY</h1> */}
-        <h2 className="parrafoAbout">
+         <h2 className="parrafoAbout">
           Esta aplicación está siendo desarrollada por Julián Arango. <br />
           <br />
           Permite visualizar los personajes de la serie Rick and Morty.

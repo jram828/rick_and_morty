@@ -8,69 +8,83 @@ import About from './components/about';
 import Detail from './components/detail';
 import Form from './components/login';
 import Favorites from './components/favorites';
+import CrearUsuario from './components/crearusuario/index copy';
+
 export const URL ='http://localhost:3001/rickandmorty/character/'
   // 'https://rickandmortyapi.com/api/character/'
 
     
 function App() {
-
   const [characters, setCharacters] = useState([]);
-  
-     const [access, setAccess] = useState(false);
 
-     const location = useLocation();
-     const navigate = useNavigate();
+  const [access, setAccess] = useState(false);
 
-     //DB FALSA
-    //  const EMAIL = "jram828@yahoo.com";
-    //  const PASSWORD = "Jram0828";
-  
-    useEffect(() => {
-      !access && navigate("/");
-    }, [access, navigate]);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-        //CON WEB SERVER
-    //  const login=(userData)=> {
-    //    if (userData.password === PASSWORD && userData.email === EMAIL) {
-    //      setAccess(true);
-    //      navigate("/home");
-    //    } else {
-    //      window.alert("Usuario o contraseña incorrectos");
-    //    }
-  //  }
+
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access, navigate]);
+
   async function login(userData) {
     const { email, password } = userData;
     const URL = "http://localhost:3001/rickandmorty/login/";
     try {
-      const { data } = await axios(URL + `?email=${email}&password=${password}`);
-      console.log('Login 2:',data)
+      const { data } = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
       const { access } = data;
       setAccess(data);
       access && navigate("/home");
-      } catch (error) {
-        window.alert("Usuario o contraseña incorrectos");
-      };
+    } catch (error) {
+      window.alert("Usuario o contraseña incorrectos");
+    }
   }
-      const logout = () => {
-        alert("Ha salido exitosamente");
+
+    async function crearUsuario(userDataCrear) {
+      const { email, password } = userDataCrear;
+      const URL = "http://localhost:3001/rickandmorty/register/";
+      try {
+        await axios.post(URL, { email: `${email}`, password: `${password}` }
+        );
+        window.alert("Usuario creado con éxito.");
         setAccess(false);
-        navigate("/");
-      };
+        access && navigate("/");
+      } catch (error) {
+        window.alert("No fue posible crear el usuario.");
+      }
+    }
   
+  const logout = () => {
+    alert("Ha salido exitosamente");
+    setAccess(false);
+    navigate("/");
+  };
+
   const onSearch = async (id) => {
     try {
-        const {data }= await axios(`${URL}${id}`)
-         setCharacters([...characters, data]);
-      } catch (error) {
-        window.alert('Character Not Found. There are 826 characters!');
-      };
+      const { data } = await axios(`${URL}${id}`);
+      setCharacters([...characters, data]);
+    } catch (error) {
+      window.alert("Character Not Found. There are 826 characters!");
+    }
   };
 
   const onClose = (id) => {
-    const charactersFilter = characters.filter((character) => character.id !== id);
+    const charactersFilter = characters.filter(
+      (character) => character.id !== id
+    );
     setCharacters(charactersFilter);
-    }
-  
+  };
+
+  //Acceder al modulo de crear usuario
+  const clickHandlerCrear = (e) => {
+    e.preventDefault();
+    setAccess(true);
+    navigate("/crearusuario");
+  };
+
   return (
     <div className="App">
       <h1
@@ -91,11 +105,14 @@ function App() {
       >
         Personajes Rick and Morty{" "}
       </h2>
-      {location.pathname !== "/" ? (
+      {location.pathname !== "/" && location.pathname !== "/crearusuario" ? (
         <Nav onSearch={onSearch} logout={logout} />
       ) : undefined}
       <Routes>
-        <Route path="/" element={<Form login={login} />} />
+        <Route
+          path="/"
+          element={<Form login={login} clickHandlerCrear={clickHandlerCrear} />}
+        />
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
@@ -103,6 +120,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/favorites" element={<Favorites onClose={onClose} />} />
+        <Route path="/crearusuario" element={<CrearUsuario crearUsuario={crearUsuario}/>} />
       </Routes>
     </div>
   );

@@ -4,9 +4,9 @@ const PORT = 3001;
 const router= require('../src/routes')
 //const {sequelize}=require('./DB_connection')
 server.use("/rickandmorty", router);
-const { conn } = require("./DB_connection");
+const { conn } = require("./DB_connection"); 
 
-conn.sync({ force: true }).then(() => {
+conn.sync({ force:false}).then(() => {
   server.listen(PORT, () => {
     console.log('Server en puerto: ' + PORT);
   
