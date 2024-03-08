@@ -36,6 +36,7 @@ const CrearUsuario = ({crearUsuario}) => {
         >
           CREAR USUARIO{" "}
         </h2>
+        <div className="fotoRegistro">
         <img
           src={logo}
           alt="Rick and Morty login"
@@ -47,6 +48,8 @@ const CrearUsuario = ({crearUsuario}) => {
             borderStyle: "solid",
           }}
         />
+          
+        </div>
         <div className="InputLogin">
           <label className="label" htmlFor="email">
             Email:

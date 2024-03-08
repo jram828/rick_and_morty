@@ -41,7 +41,7 @@ export const Button3 = styled.button`
   cursor: pointer;
   background-color: black;
   color: aqua;
-  height: 30px;
-  width: 40%;
+  height: 30%;
+  width: 70%;
   font-weight: bold;
 `;

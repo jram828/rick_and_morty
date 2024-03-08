@@ -125,3 +125,41 @@ h3{
    color: black;
    font-size: 14px;
 }
+
+.fotoRam {
+  border-radius: 50%;
+}
+
+.fotoRegistro {
+  padding: 5px;
+  position: relative;
+}
+.fotoRegistro::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  /* justify-content: center; */
+  left: 0%;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 18%;
+  background: linear-gradient(
+    45deg, aqua, black, white,
+    aqua, black, white);
+    background-size: 800%;
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+}
+ @keyframes glowing {
+  0%{
+    background-position: 0 0;
+  }
+  50%{
+    background-position: 400% 0;
+  } 
+  100%{
+    background-position: 0 0;
+  }
+  
+ }

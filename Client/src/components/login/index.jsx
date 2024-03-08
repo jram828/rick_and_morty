@@ -26,17 +26,19 @@ const Form = ({ login, clickHandlerCrear }) => {
   return (
     <div>
       <form onSubmit={submitHandler}>
-        <img
-          src={logo}
-          alt="Rick and Morty login"
-          style={{
-            height: "300px",
-            marginBottom: "10px",
-            borderRadius: "18%",
-            borderColor: "black",
-            borderStyle: "solid",
-          }}
-        />
+        <div className="fotoRegistro">
+          <img
+            src={logo}
+            alt="Rick and Morty login"
+            style={{
+              height: "300px",
+              marginBottom: "10px",
+              borderRadius: "18%",
+              borderColor: "black",
+              borderStyle: "solid",
+            }}
+          />
+        </div>
         <div className="InputLogin">
           <label className="label" htmlFor="email">
             Email:
@@ -50,7 +52,7 @@ const Form = ({ login, clickHandlerCrear }) => {
             onChange={handleChange}
           />
           <br />
-         
+
           <label className="label" htmlFor="password">
             Contraseña:
           </label>
@@ -65,15 +67,16 @@ const Form = ({ login, clickHandlerCrear }) => {
 
           <hr style={{ borderStyle: "none" }} />
           <Button3
+            style={{ margin: "10px" }}
             type="submit"
             disabled={!userData.email || !userData.password}
           >
             INGRESAR
           </Button3>
-         
-            <Button3 type="button" onClick={clickHandlerCrear}>
-              Crear Usuario
-            </Button3>
+          <br />
+          <Button3 type="button" onClick={clickHandlerCrear}>
+            CREAR USUARIO
+          </Button3>
         </div>
       </form>
     </div>
